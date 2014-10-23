@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DF42458A19F883BD00F3F3B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DF42458919F883BD00F3F3B3 /* main.m */; };
+		DF42458D19F883BD00F3F3B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF42458C19F883BD00F3F3B3 /* AppDelegate.m */; };
+		DF42459019F883BD00F3F3B3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF42458F19F883BD00F3F3B3 /* ViewController.m */; };
+		DF42459319F883BD00F3F3B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF42459119F883BD00F3F3B3 /* Main.storyboard */; };
+		DF42459519F883BD00F3F3B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF42459419F883BD00F3F3B3 /* Images.xcassets */; };
+		DF42459819F883BD00F3F3B3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF42459619F883BD00F3F3B3 /* LaunchScreen.xib */; };
+		DF4245A419F883BD00F3F3B3 /* YourVoiceAlarmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4245A319F883BD00F3F3B3 /* YourVoiceAlarmTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DF42459E19F883BD00F3F3B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF42457C19F883BD00F3F3B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DF42458319F883BD00F3F3B3;
+			remoteInfo = YourVoiceAlarm;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DF42458419F883BD00F3F3B3 /* YourVoiceAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourVoiceAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF42458819F883BD00F3F3B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF42458919F883BD00F3F3B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DF42458B19F883BD00F3F3B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DF42458C19F883BD00F3F3B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DF42458E19F883BD00F3F3B3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DF42458F19F883BD00F3F3B3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DF42459219F883BD00F3F3B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DF42459419F883BD00F3F3B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DF42459719F883BD00F3F3B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		DF42459D19F883BD00F3F3B3 /* YourVoiceAlarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YourVoiceAlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF4245A219F883BD00F3F3B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF4245A319F883BD00F3F3B3 /* YourVoiceAlarmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YourVoiceAlarmTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DF42458119F883BD00F3F3B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF42459A19F883BD00F3F3B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DF42457B19F883BD00F3F3B3 = {
+			isa = PBXGroup;
+			children = (
+				DF42458619F883BD00F3F3B3 /* YourVoiceAlarm */,
+				DF4245A019F883BD00F3F3B3 /* YourVoiceAlarmTests */,
+				DF42458519F883BD00F3F3B3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DF42458519F883BD00F3F3B3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DF42458419F883BD00F3F3B3 /* YourVoiceAlarm.app */,
+				DF42459D19F883BD00F3F3B3 /* YourVoiceAlarmTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DF42458619F883BD00F3F3B3 /* YourVoiceAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				DF42458B19F883BD00F3F3B3 /* AppDelegate.h */,
+				DF42458C19F883BD00F3F3B3 /* AppDelegate.m */,
+				DF42458E19F883BD00F3F3B3 /* ViewController.h */,
+				DF42458F19F883BD00F3F3B3 /* ViewController.m */,
+				DF42459119F883BD00F3F3B3 /* Main.storyboard */,
+				DF42459419F883BD00F3F3B3 /* Images.xcassets */,
+				DF42459619F883BD00F3F3B3 /* LaunchScreen.xib */,
+				DF42458719F883BD00F3F3B3 /* Supporting Files */,
+			);
+			path = YourVoiceAlarm;
+			sourceTree = "<group>";
+		};
+		DF42458719F883BD00F3F3B3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DF42458819F883BD00F3F3B3 /* Info.plist */,
+				DF42458919F883BD00F3F3B3 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DF4245A019F883BD00F3F3B3 /* YourVoiceAlarmTests */ = {
+			isa = PBXGroup;
+			children = (
+				DF4245A319F883BD00F3F3B3 /* YourVoiceAlarmTests.m */,
+				DF4245A119F883BD00F3F3B3 /* Supporting Files */,
+			);
+			path = YourVoiceAlarmTests;
+			sourceTree = "<group>";
+		};
+		DF4245A119F883BD00F3F3B3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DF4245A219F883BD00F3F3B3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DF42458319F883BD00F3F3B3 /* YourVoiceAlarm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF4245A719F883BD00F3F3B3 /* Build configuration list for PBXNativeTarget "YourVoiceAlarm" */;
+			buildPhases = (
+				DF42458019F883BD00F3F3B3 /* Sources */,
+				DF42458119F883BD00F3F3B3 /* Frameworks */,
+				DF42458219F883BD00F3F3B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YourVoiceAlarm;
+			productName = YourVoiceAlarm;
+			productReference = DF42458419F883BD00F3F3B3 /* YourVoiceAlarm.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DF42459C19F883BD00F3F3B3 /* YourVoiceAlarmTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF4245AA19F883BD00F3F3B3 /* Build configuration list for PBXNativeTarget "YourVoiceAlarmTests" */;
+			buildPhases = (
+				DF42459919F883BD00F3F3B3 /* Sources */,
+				DF42459A19F883BD00F3F3B3 /* Frameworks */,
+				DF42459B19F883BD00F3F3B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DF42459F19F883BD00F3F3B3 /* PBXTargetDependency */,
+			);
+			name = YourVoiceAlarmTests;
+			productName = YourVoiceAlarmTests;
+			productReference = DF42459D19F883BD00F3F3B3 /* YourVoiceAlarmTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DF42457C19F883BD00F3F3B3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = " koichi-hayashida";
+				TargetAttributes = {
+					DF42458319F883BD00F3F3B3 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					DF42459C19F883BD00F3F3B3 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = DF42458319F883BD00F3F3B3;
+					};
+				};
+			};
+			buildConfigurationList = DF42457F19F883BD00F3F3B3 /* Build configuration list for PBXProject "YourVoiceAlarm" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DF42457B19F883BD00F3F3B3;
+			productRefGroup = DF42458519F883BD00F3F3B3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DF42458319F883BD00F3F3B3 /* YourVoiceAlarm */,
+				DF42459C19F883BD00F3F3B3 /* YourVoiceAlarmTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DF42458219F883BD00F3F3B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF42459319F883BD00F3F3B3 /* Main.storyboard in Resources */,
+				DF42459819F883BD00F3F3B3 /* LaunchScreen.xib in Resources */,
+				DF42459519F883BD00F3F3B3 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF42459B19F883BD00F3F3B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DF42458019F883BD00F3F3B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF42459019F883BD00F3F3B3 /* ViewController.m in Sources */,
+				DF42458D19F883BD00F3F3B3 /* AppDelegate.m in Sources */,
+				DF42458A19F883BD00F3F3B3 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF42459919F883BD00F3F3B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF4245A419F883BD00F3F3B3 /* YourVoiceAlarmTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DF42459F19F883BD00F3F3B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DF42458319F883BD00F3F3B3 /* YourVoiceAlarm */;
+			targetProxy = DF42459E19F883BD00F3F3B3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DF42459119F883BD00F3F3B3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DF42459219F883BD00F3F3B3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DF42459619F883BD00F3F3B3 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DF42459719F883BD00F3F3B3 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DF4245A519F883BD00F3F3B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DF4245A619F883BD00F3F3B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DF4245A819F883BD00F3F3B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = YourVoiceAlarm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DF4245A919F883BD00F3F3B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = YourVoiceAlarm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DF4245AB19F883BD00F3F3B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = YourVoiceAlarmTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YourVoiceAlarm.app/YourVoiceAlarm";
+			};
+			name = Debug;
+		};
+		DF4245AC19F883BD00F3F3B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = YourVoiceAlarmTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YourVoiceAlarm.app/YourVoiceAlarm";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DF42457F19F883BD00F3F3B3 /* Build configuration list for PBXProject "YourVoiceAlarm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF4245A519F883BD00F3F3B3 /* Debug */,
+				DF4245A619F883BD00F3F3B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF4245A719F883BD00F3F3B3 /* Build configuration list for PBXNativeTarget "YourVoiceAlarm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF4245A819F883BD00F3F3B3 /* Debug */,
+				DF4245A919F883BD00F3F3B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DF4245AA19F883BD00F3F3B3 /* Build configuration list for PBXNativeTarget "YourVoiceAlarmTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF4245AB19F883BD00F3F3B3 /* Debug */,
+				DF4245AC19F883BD00F3F3B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DF42457C19F883BD00F3F3B3 /* Project object */;
+}
