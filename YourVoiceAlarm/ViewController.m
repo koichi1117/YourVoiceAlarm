@@ -13,12 +13,15 @@
     // インスタンス変数を定義する-------------------------------------------------------------------------------------------
     AVAudioRecorder *recorder;
     AVAudioPlayer *player;
+    UIDatePicker *datePicker;
 }
 @end
 
 // ここから実装部分-------------------------------------------------------------------------------------------------------
 @implementation ViewController
-@synthesize recordPauseButton, stopButton, playButton;
+@synthesize recordPauseButton, stopButton, playButton, stopAlarmButton, datePicker, datePickerTime, datePickerLabel, alarmTimer, startAlarmTimer;
+
+
 
 // 画面が表示された時に呼び出される
 - (void)viewDidLoad {
@@ -47,11 +50,18 @@
     [recordSetting setValue:[NSNumber numberWithInt:2] forKey:AVNumberOfChannelsKey];
     
     // レコーダーを初期化する
-    recorder = [[AVAudioRecorder alloc] initWithURL:outputFileURL settings:recordSetting error:NULL]; //初期化の中で保存する場所を設定する
+    recorder = [[AVAudioRecorder alloc] initWithURL:outputFileURL settings:recordSetting error:NULL]; //初期化の中で保存する場所を設定する。上でセットしたURLでその場所を教える。
     recorder.delegate = self;
     recorder.meteringEnabled = YES;
     [recorder prepareToRecord];
+    
+
+
 }
+
+
+
+
 
 
 // 一時停止ボタンが押された時に呼び出される
@@ -129,7 +139,155 @@
     
     [alart show];
 
+    [playButton setEnabled:YES];
+    [recordPauseButton setEnabled:YES];
+    [stopButton setEnabled:NO];
+
 }
+
+
+
+
+
+// ここからdatePickerについて-------------------------------------------------------------------------------------------------------
+
+//// datePickerの初期化
+//- (void)pickerDidLoad
+//{
+//    [super viewDidLoad];
+//    
+//    // datePickerのイニシャライザー
+//    datePicker = [[UIDatePicker alloc] init];
+//    NSLog(@"あああ");
+//}
+//
+
+
+// datePickerの時間を取り込むメソッド
+- (IBAction)getAlarmTime:(id)sender
+{
+//    datePicker = [[UIDatePicker alloc] init];
+    [datePicker addTarget:self action:@selector(TimeChanged:) forControlEvents:UIControlEventValueChanged];
+
+}
+
+- (IBAction)TimeChanged:(id)sender
+{
+    // 日付の表示形式を設定
+    NSDateFormatter *dF = [[NSDateFormatter alloc] init];
+    dF.dateFormat = @"HH:mm";
+    datePickerTime = [dF stringFromDate:datePicker.date];
+    datePickerLabel.text = datePickerTime;
+
+}
+
+
+// 設定した時間が、今の時間と一緒か確かめる-----------------------------------------------------------
+
+// 指定した時刻(hour)
+- (NSInteger)datePickerTimeHour
+{
+    NSDateFormatter *hourFormatter = [[NSDateFormatter alloc] init];
+    hourFormatter.dateFormat = @"HH";
+    
+//    [hourFormatter setLocale:[NSLocale currentLocale]];
+//    [hourFormatter setDateFormat:@"HH"];
+    NSString *datePickerHour = [hourFormatter stringFromDate:datePicker.date];
+    return [datePickerHour intValue];
+}
+
+// 指定した時刻(minute)
+- (NSInteger)datePickerTimeMinute
+{
+    NSDateFormatter *minuteFormatter = [[NSDateFormatter alloc] init];
+    minuteFormatter.dateFormat = @"mm";
+//    [minuteFormatter setLocale:[NSLocale currentLocale]];
+//    [minuteFormatter setDateFormat:@"mm"];
+    NSString *datePickerHour = [minuteFormatter stringFromDate:datePicker.date];
+    return [datePickerHour intValue];
+}
+
+//現在時刻のコンポーネント
+- (NSDateComponents *)currentDateComponents
+{
+    //現在の時刻を取得
+    NSDate *nowDate = [NSDate date];
+    
+    //現在時刻のコンポーネント定義
+    NSDateComponents *nowComponents;
+    nowComponents = [[NSCalendar currentCalendar] components:( NSCalendarUnitHour | NSCalendarUnitMinute ) fromDate:nowDate];
+    return nowComponents;
+}
+
+
+// 現在の時間(hour)
+- (NSInteger)currentHour
+{
+    NSDateComponents *currentTimeComponents = [self currentDateComponents];
+    return currentTimeComponents.hour;
+}
+
+// 現在の時間(minute)
+- (NSInteger)currentMinute
+{
+    NSDateComponents *currentTimeComponents = [self currentDateComponents];
+    return currentTimeComponents.minute;
+}
+
+//// 設定した時刻が、現在時刻であるかどうか
+//- (BOOL)isCurrentTime
+//{
+//    return ([self currentHour] == [self datePickerTimeHour] &&
+//            [self currentMinute] == [self datePickerTimeMinute]);
+//}
+//
+// -----------------------------------------------------------設定した時間が、今の時間と一緒か確かめる
+
+// アラームタイマー開始
+
+- (IBAction)pushStartAlarm:(id)sender
+{
+    alarmTimer = [NSTimer scheduledTimerWithTimeInterval:60
+                                                  target:self
+                                                selector:@selector(alarmTimerEvent:)
+                                                userInfo:nil
+                                                 repeats:YES];
+}
+
+
+// アラームの再生メソッド
+- (void)alarmTimerEvent:(NSTimer *)timer
+
+//    if (!recorder.recording) //この中身これで良いのか確かめる。さらにアラームがオンになってるかどうか、という制限もかけなければならないのではないか？しかも、一回再生するのではなくて、永遠に再生してほしい。
+    {
+        if ([self currentHour]   == [self datePickerTimeHour] &&
+            [self currentMinute] == [self datePickerTimeMinute])
+        {
+            NSLog(@"equal");
+            NSLog(@"%ld", (unsigned long)[self currentHour]);
+            NSLog(@"%ld", (unsigned long)[self datePickerTimeHour]);
+            NSLog(@"%ld", (unsigned long)[self currentMinute]);
+            NSLog(@"%ld", (unsigned long)[self datePickerTimeMinute]);
+            
+
+            player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
+            [player setDelegate:self];
+            [player play];
+        }
+        else{
+//            NSLog(@"else");
+        }
+    }
+
+
+
+
+// 止めるボタンを押すと止まるメソッド
+- (IBAction)stopAlarm:(id)sender
+{
+    
+}
+
 
 
 @end

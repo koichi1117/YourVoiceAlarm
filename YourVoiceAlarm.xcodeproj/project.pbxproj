@@ -301,6 +301,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				"VALID_ARCHS[sdk=*]" = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -412,6 +413,7 @@
 				DF4245A919F883BD00F3F3B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DF4245AA19F883BD00F3F3B3 /* Build configuration list for PBXNativeTarget "YourVoiceAlarmTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +422,7 @@
 				DF4245AC19F883BD00F3F3B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

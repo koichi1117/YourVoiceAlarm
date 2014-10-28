@@ -17,6 +17,17 @@
 @property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UIButton *stopAlarmButton;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property NSString *datePickerTime;
+@property (weak, nonatomic) IBOutlet UILabel *datePickerLabel;
+@property NSTimer *alarmTimer;
+@property (weak, nonatomic) IBOutlet UIButton *startAlarmTimer;
+
+
+
+- (IBAction)TimeChanged:(id)sender;
+
 // ViewController.hに@propertyを設定して、
 // ViewController.mに@synthesizeを組み合わせて設定することで、
 // setterとgetterをコンパイルの前に生成させることができるようになる。
