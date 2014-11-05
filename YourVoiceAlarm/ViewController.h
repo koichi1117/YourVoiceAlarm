@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h> // AVFoundationを読み込む
 
-@interface ViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
+@interface ViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate, UITextFieldDelegate>
 //UIViewControllerを継承したViewControllerクラス
 // AVAudioRecorderDelegateを宣言することで、AVAudioRecorderDelegateプロトコルが使えるようになる。これで、妨害やエラーに対応するようになったり、録音を完了できるようになったりする。
 // AVAudioPlayerDelegateを宣言することで、AVAudioPlayerDelegateプロトコルが使えるようになる。これで、妨害やエラーに対応するようになったり、音の再生を完了できるようになったりする。
@@ -24,6 +24,9 @@
 @property NSTimer *alarmTimer;
 @property (weak, nonatomic) IBOutlet UIButton *startAlarmTimer;
 
+
+@property (strong, nonatomic) IBOutlet UITextField *wakeUpTimeField;
+@property (readwrite, retain) UIView *inputView;
 
 
 - (IBAction)TimeChanged:(id)sender;
