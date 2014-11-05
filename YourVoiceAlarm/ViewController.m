@@ -99,8 +99,6 @@
 #pragma mark datePickerの編集が完了（Done）したら、結果をwakeUpTimeFieldに表示
 - (void)updateWakeUpTimeField:(id)sender
 {
-//    datePicker = (UIDatePicker *)sender;
-    NSLog(@"あああああああああああああああああ");
     wakeUpTimeField.text = datePickerTime;
     [wakeUpTimeField resignFirstResponder];
     
@@ -175,14 +173,6 @@
 // 再生が終わった時に呼び出される
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-//    UIAlertView *alart = [[UIAlertView alloc] initWithTitle: @""
-//                                                    message: @"Your voice recorded!!"
-//                                                   delegate: nil
-//                                          cancelButtonTitle: @"OK"
-//                                          otherButtonTitles: nil];
-//    
-//    [alart show];
-
     [playButton setEnabled:YES];
     [recordPauseButton setEnabled:YES];
     [stopButton setEnabled:NO];
@@ -194,26 +184,6 @@
 
 
 // ここからdatePickerについて-------------------------------------------------------------------------------------------------------
-
-//// datePickerの初期化
-//- (void)pickerDidLoad
-//{
-//    [super viewDidLoad];
-//    
-//    // datePickerのイニシャライザー
-//    datePicker = [[UIDatePicker alloc] init];
-//    NSLog(@"あああ");
-//}
-//
-
-
-// datePickerの時間を取り込むメソッド
-//- (IBAction)getAlarmTime:(id)sender
-//{
-////    datePicker = [[UIDatePicker alloc] init];
-//    [datePicker addTarget:self action:@selector(TimeChanged:) forControlEvents:UIControlEventValueChanged];
-//}
-
 - (void)TimeChanged:(id)sender
 {
     // 日付の表示形式を設定
@@ -278,17 +248,7 @@
     return currentTimeComponents.minute;
 }
 
-//// 設定した時刻が、現在時刻であるかどうか
-//- (BOOL)isCurrentTime
-//{
-//    return ([self currentHour] == [self datePickerTimeHour] &&
-//            [self currentMinute] == [self datePickerTimeMinute]);
-//}
-//
-// -----------------------------------------------------------設定した時間が、今の時間と一緒か確かめる
-
 // アラームタイマー開始
-
 - (IBAction)pushStartAlarm:(id)sender
 {
     alarmTimer = [NSTimer scheduledTimerWithTimeInterval:10
