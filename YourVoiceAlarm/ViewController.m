@@ -14,12 +14,13 @@
     AVAudioRecorder *recorder;
     AVAudioPlayer *player;
     UIDatePicker *datePicker;
+    UITextField *wakeUpTimeField;
 }
 @end
 
 // ここから実装部分-------------------------------------------------------------------------------------------------------
 @implementation ViewController
-@synthesize recordPauseButton, stopButton, playButton, stopAlarmButton, datePicker, datePickerTime, datePickerLabel, alarmTimer, startAlarmTimer;
+@synthesize recordPauseButton, stopButton, playButton, stopAlarmButton, datePicker, datePickerTime, datePickerLabel, alarmTimer, startAlarmTimer, wakeUpTimeField, inputView;
 
 
 
@@ -56,11 +57,54 @@
     [recorder prepareToRecord];
     
 
+    
+    // ここから時間の表示&設定
+    datePicker = [[UIDatePicker alloc] init];
+    [datePicker setDatePickerMode:UIDatePickerModeTime];
+    
+    // wakeUpTimeFieldを編集したら、datePickerを呼び出す
+    [datePicker addTarget:self action:@selector(wakeUpTimeField) forControlEvents:UIControlEventValueChanged];
+    
+    // wakeUpTimeFieldの入力をdatePickerに設定
+    wakeUpTimeField.inputView = datePicker;
+    
+    // Delegationの設定
+    wakeUpTimeField.delegate = self;
+    
+    // DoneボタンとそのViewの作成
+    UIToolbar *keyboardDoneBuutonView = [[UIToolbar alloc] init];
+    keyboardDoneBuutonView.barStyle = UIBarStyleBlack;
+    keyboardDoneBuutonView.translucent = YES;
+    keyboardDoneBuutonView.tintColor = nil;
+    [keyboardDoneBuutonView sizeToFit];
+    
+    //　DoneボタンとSpacerのセットを用意
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(updateWakeUpTimeField:)];
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [keyboardDoneBuutonView setItems:[NSArray arrayWithObjects:spacer, doneButton, nil]];
+    
+    // Viewの配置
+    wakeUpTimeField.inputAccessoryView = keyboardDoneBuutonView;
+    
+    [self.view addSubview:wakeUpTimeField];
+    
+    //
+    [datePicker addTarget:self action:@selector(TimeChanged:) forControlEvents:UIControlEventValueChanged];
+
+    
 
 }
 
 
-
+#pragma mark datePickerの編集が完了（Done）したら、結果をwakeUpTimeFieldに表示
+- (void)updateWakeUpTimeField:(id)sender
+{
+//    datePicker = (UIDatePicker *)sender;
+    NSLog(@"あああああああああああああああああ");
+    wakeUpTimeField.text = datePickerTime;
+    [wakeUpTimeField resignFirstResponder];
+    
+}
 
 
 
@@ -131,13 +175,13 @@
 // 再生が終わった時に呼び出される
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-    UIAlertView *alart = [[UIAlertView alloc] initWithTitle: @""
-                                                    message: @"Your voice recorded!!"
-                                                   delegate: nil
-                                          cancelButtonTitle: @"OK"
-                                          otherButtonTitles: nil];
-    
-    [alart show];
+//    UIAlertView *alart = [[UIAlertView alloc] initWithTitle: @""
+//                                                    message: @"Your voice recorded!!"
+//                                                   delegate: nil
+//                                          cancelButtonTitle: @"OK"
+//                                          otherButtonTitles: nil];
+//    
+//    [alart show];
 
     [playButton setEnabled:YES];
     [recordPauseButton setEnabled:YES];
@@ -164,20 +208,20 @@
 
 
 // datePickerの時間を取り込むメソッド
-- (IBAction)getAlarmTime:(id)sender
-{
-//    datePicker = [[UIDatePicker alloc] init];
-    [datePicker addTarget:self action:@selector(TimeChanged:) forControlEvents:UIControlEventValueChanged];
+//- (IBAction)getAlarmTime:(id)sender
+//{
+////    datePicker = [[UIDatePicker alloc] init];
+//    [datePicker addTarget:self action:@selector(TimeChanged:) forControlEvents:UIControlEventValueChanged];
+//}
 
-}
-
-- (IBAction)TimeChanged:(id)sender
+- (void)TimeChanged:(id)sender
 {
     // 日付の表示形式を設定
     NSDateFormatter *dF = [[NSDateFormatter alloc] init];
     dF.dateFormat = @"HH:mm";
     datePickerTime = [dF stringFromDate:datePicker.date];
     datePickerLabel.text = datePickerTime;
+    NSLog(@"%ld", (unsigned long)[self datePickerTime]);
 
 }
 
@@ -247,7 +291,7 @@
 
 - (IBAction)pushStartAlarm:(id)sender
 {
-    alarmTimer = [NSTimer scheduledTimerWithTimeInterval:60
+    alarmTimer = [NSTimer scheduledTimerWithTimeInterval:10
                                                   target:self
                                                 selector:@selector(alarmTimerEvent:)
                                                 userInfo:nil
@@ -263,13 +307,11 @@
         if ([self currentHour]   == [self datePickerTimeHour] &&
             [self currentMinute] == [self datePickerTimeMinute])
         {
-            NSLog(@"equal");
-            NSLog(@"%ld", (unsigned long)[self currentHour]);
-            NSLog(@"%ld", (unsigned long)[self datePickerTimeHour]);
-            NSLog(@"%ld", (unsigned long)[self currentMinute]);
-            NSLog(@"%ld", (unsigned long)[self datePickerTimeMinute]);
-            
-
+//            NSLog(@"equal");
+//            NSLog(@"%ld", (unsigned long)[self currentHour]);
+//            NSLog(@"%ld", (unsigned long)[self datePickerTimeHour]);
+//            NSLog(@"%ld", (unsigned long)[self currentMinute]);
+//            NSLog(@"%ld", (unsigned long)[self datePickerTimeMinute]);
             player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
             [player setDelegate:self];
             [player play];
@@ -285,7 +327,7 @@
 // 止めるボタンを押すと止まるメソッド
 - (IBAction)stopAlarm:(id)sender
 {
-    
+    [player stop];
 }
 
 
