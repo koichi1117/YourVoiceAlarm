@@ -15,6 +15,8 @@
     AVAudioPlayer *player;
     UIDatePicker *datePicker;
     UITextField *wakeUpTimeField;
+    NSString *datePickerTime;
+    UILabel *datePickerLabel;
 }
 @end
 
@@ -290,6 +292,24 @@
     [player stop];
 }
 
+
+// ページ遷移の時に値を渡すためのメソッド
+// ページ遷移に名前をつける
+- (IBAction)pushStartAlarmButton:(id)sender
+{
+    [self performSegueWithIdentifier:@"goToSleepingTimeView" sender:self];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"goToSleepingTimeView"])
+    {
+        ViewController *viewCon = segue.destinationViewController;
+        viewCon.wakeUpTime = datePickerTime;
+        
+        
+    }
+}
 
 
 @end
