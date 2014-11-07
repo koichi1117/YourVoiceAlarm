@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h> // AVFoundationを読み込む
+//#import "SleepingTimeViewController.h"
 
 @interface ViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate, UITextFieldDelegate>
 //UIViewControllerを継承したViewControllerクラス
@@ -20,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *stopAlarmButton;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property NSString *datePickerTime;
-@property (weak, nonatomic) IBOutlet UILabel *datePickerLabel;
+@property (strong, nonatomic) IBOutlet UILabel *datePickerLabel;
 @property NSTimer *alarmTimer;
 @property (weak, nonatomic) IBOutlet UIButton *startAlarmTimer;
 
@@ -31,11 +32,14 @@
 
 - (IBAction)TimeChanged:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *pushStartAlarmButton;
+
 // ViewController.hに@propertyを設定して、
 // ViewController.mに@synthesizeを組み合わせて設定することで、
 // setterとgetterをコンパイルの前に生成させることができるようになる。
 // Xcodeにこれらのボタンを使ってメソッドの中で作用させることを認識させられる。
 
+@property (nonatomic) NSString *wakeUpTime;
 
 @end
 

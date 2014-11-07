@@ -14,6 +14,7 @@
 		DF42459519F883BD00F3F3B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF42459419F883BD00F3F3B3 /* Images.xcassets */; };
 		DF42459819F883BD00F3F3B3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF42459619F883BD00F3F3B3 /* LaunchScreen.xib */; };
 		DF4245A419F883BD00F3F3B3 /* YourVoiceAlarmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4245A319F883BD00F3F3B3 /* YourVoiceAlarmTests.m */; };
+		DF5BF5891A0C98D500A249DD /* SleepingTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5BF5881A0C98D500A249DD /* SleepingTimeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		DF42459D19F883BD00F3F3B3 /* YourVoiceAlarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YourVoiceAlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF4245A219F883BD00F3F3B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF4245A319F883BD00F3F3B3 /* YourVoiceAlarmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YourVoiceAlarmTests.m; sourceTree = "<group>"; };
+		DF5BF5871A0C98D500A249DD /* SleepingTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepingTimeViewController.h; sourceTree = "<group>"; };
+		DF5BF5881A0C98D500A249DD /* SleepingTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepingTimeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				DF42458E19F883BD00F3F3B3 /* ViewController.h */,
 				DF42458F19F883BD00F3F3B3 /* ViewController.m */,
 				DF42459119F883BD00F3F3B3 /* Main.storyboard */,
+				DF5BF5871A0C98D500A249DD /* SleepingTimeViewController.h */,
+				DF5BF5881A0C98D500A249DD /* SleepingTimeViewController.m */,
 				DF42459419F883BD00F3F3B3 /* Images.xcassets */,
 				DF42459619F883BD00F3F3B3 /* LaunchScreen.xib */,
 				DF42458719F883BD00F3F3B3 /* Supporting Files */,
@@ -219,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF5BF5891A0C98D500A249DD /* SleepingTimeViewController.m in Sources */,
 				DF42459019F883BD00F3F3B3 /* ViewController.m in Sources */,
 				DF42458D19F883BD00F3F3B3 /* AppDelegate.m in Sources */,
 				DF42458A19F883BD00F3F3B3 /* main.m in Sources */,

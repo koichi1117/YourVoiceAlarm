@@ -65,15 +65,14 @@
                                     <action selector="stopTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="buX-gp-8Y0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WakeUpTime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncl-pA-paM">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="11:00" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6mX-NZ-WmT">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="134" y="294" width="133" height="21"/>
+                                    <rect key="frame" x="154" y="54" width="97" height="30"/>
                                 </variation>
-                            </label>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctv-Vp-R99">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Start Alarm">
@@ -83,17 +82,11 @@
                                     <rect key="frame" x="61" y="540" width="92" height="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="pushStartAlarm:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vZE-yJ-6vV"/>
+                                    <action selector="pushStartAlarm:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uMD-Y5-adu"/>
+                                    <action selector="pushStartAlarmButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rJY-Sn-0WF"/>
+                                    <segue destination="Yat-ae-MGY" kind="presentation" identifier="goToSleepingTimeView" id="ZZT-hv-QC8"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="11:00" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6mX-NZ-WmT">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="154" y="54" width="97" height="30"/>
-                                </variation>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -102,9 +95,8 @@
                                 <exclude reference="aov-RX-zyd"/>
                                 <exclude reference="yD8-BU-Qgp"/>
                                 <exclude reference="YdA-iv-q5X"/>
-                                <exclude reference="Ncl-pA-paM"/>
-                                <exclude reference="ctv-Vp-R99"/>
                                 <exclude reference="6mX-NZ-WmT"/>
+                                <exclude reference="ctv-Vp-R99"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -113,15 +105,15 @@
                                 <include reference="aov-RX-zyd"/>
                                 <include reference="yD8-BU-Qgp"/>
                                 <include reference="YdA-iv-q5X"/>
-                                <include reference="Ncl-pA-paM"/>
-                                <include reference="ctv-Vp-R99"/>
                                 <include reference="6mX-NZ-WmT"/>
+                                <include reference="ctv-Vp-R99"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="datePickerLabel" destination="Ncl-pA-paM" id="9Rt-GU-vDJ"/>
                         <outlet property="playButton" destination="aov-RX-zyd" id="JjL-Kd-XW6"/>
+                        <outlet property="pushStartAlarmButton" destination="ctv-Vp-R99" id="Fs8-7z-WPW"/>
                         <outlet property="recordPauseButton" destination="yCf-V1-17O" id="UG7-RI-RJW"/>
                         <outlet property="startAlarmTimer" destination="ctv-Vp-R99" id="e4h-7P-aDx"/>
                         <outlet property="stopAlarmButton" destination="yD8-BU-Qgp" id="3Or-9I-Web"/>
@@ -133,13 +125,47 @@
             </objects>
             <point key="canvasLocation" x="-233" y="59"/>
         </scene>
-        <!--Page View Controller-->
-        <scene sceneID="75f-48-lfn">
+        <!--Sleeping Time View Controller-->
+        <scene sceneID="qJ4-aD-YOG">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="72q-wC-zPM" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZZd-xr-UIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Yat-ae-MGY" customClass="SleepingTimeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SW1-BB-56l"/>
+                        <viewControllerLayoutGuide type="bottom" id="80Q-hf-vj7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wVI-Zp-nU0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WakeUpTime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncl-pA-paM">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="134" y="263" width="133" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Ncl-pA-paM"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Ncl-pA-paM"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="datePickerLabel" destination="Ncl-pA-paM" id="ayo-AX-EAv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQU-Ad-uHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="533" y="59"/>
+            <point key="canvasLocation" x="525" y="59"/>
         </scene>
     </scenes>
 </document>
