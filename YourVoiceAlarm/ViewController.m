@@ -306,7 +306,7 @@
     {
         ViewController *viewCon = segue.destinationViewController;
         viewCon.wakeUpTime = datePickerTime;
-        
+        viewCon.wakeUpTimePicker = datePicker;
         
     }
 }

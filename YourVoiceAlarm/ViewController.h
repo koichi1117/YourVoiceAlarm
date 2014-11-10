@@ -30,7 +30,6 @@
 @property (readwrite, retain) UIView *inputView;
 
 
-- (IBAction)TimeChanged:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *pushStartAlarmButton;
 
@@ -40,6 +39,7 @@
 // Xcodeにこれらのボタンを使ってメソッドの中で作用させることを認識させられる。
 
 @property (nonatomic) NSString *wakeUpTime;
+@property (nonatomic) UIDatePicker *wakeUpTimePicker;
 
 @end
 
