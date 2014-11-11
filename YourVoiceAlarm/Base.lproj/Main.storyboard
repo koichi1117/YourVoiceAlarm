@@ -28,19 +28,6 @@
                                     <action selector="recordPauseTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Iyh-Kf-jaK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yD8-BU-Qgp">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Stop Alarm">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="229" y="540" width="101" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="playTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rVa-mH-78B"/>
-                                    <action selector="stopAlarm:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="nCf-T4-wdX"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdA-iv-q5X">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Stop">
@@ -62,8 +49,6 @@
                                     <rect key="frame" x="154" y="407" width="92" height="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="pushStartAlarm:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uMD-Y5-adu"/>
-                                    <action selector="pushStartAlarmButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rJY-Sn-0WF"/>
                                     <segue destination="Yat-ae-MGY" kind="presentation" identifier="goToSleepingTimeView" id="ZZT-hv-QC8"/>
                                 </connections>
                             </button>
@@ -88,35 +73,46 @@
                                     <rect key="frame" x="77" y="74" width="246" height="30"/>
                                 </variation>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yD8-BU-Qgp">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Stop Alarm">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="150" y="507" width="101" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="playTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rVa-mH-78B"/>
+                                    <action selector="stopAlarm:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="nCf-T4-wdX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="yCf-V1-17O"/>
-                                <exclude reference="yD8-BU-Qgp"/>
                                 <exclude reference="YdA-iv-q5X"/>
                                 <exclude reference="ctv-Vp-R99"/>
                                 <exclude reference="aov-RX-zyd"/>
                                 <exclude reference="6mX-NZ-WmT"/>
+                                <exclude reference="yD8-BU-Qgp"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="yCf-V1-17O"/>
-                                <include reference="yD8-BU-Qgp"/>
                                 <include reference="YdA-iv-q5X"/>
                                 <include reference="ctv-Vp-R99"/>
                                 <include reference="aov-RX-zyd"/>
                                 <include reference="6mX-NZ-WmT"/>
+                                <include reference="yD8-BU-Qgp"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="datePickerLabel" destination="Ncl-pA-paM" id="9Rt-GU-vDJ"/>
                         <outlet property="playButton" destination="aov-RX-zyd" id="JjL-Kd-XW6"/>
-                        <outlet property="pushStartAlarmButton" destination="ctv-Vp-R99" id="Fs8-7z-WPW"/>
                         <outlet property="recordPauseButton" destination="yCf-V1-17O" id="UG7-RI-RJW"/>
-                        <outlet property="startAlarmTimer" destination="ctv-Vp-R99" id="e4h-7P-aDx"/>
                         <outlet property="stopAlarmButton" destination="yD8-BU-Qgp" id="3Or-9I-Web"/>
                         <outlet property="stopButton" destination="YdA-iv-q5X" id="UOu-fp-Kpx"/>
                         <outlet property="wakeUpTimeField" destination="6mX-NZ-WmT" id="ufr-bF-Lea"/>

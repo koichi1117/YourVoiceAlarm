@@ -15,6 +15,7 @@
 		DF42459819F883BD00F3F3B3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF42459619F883BD00F3F3B3 /* LaunchScreen.xib */; };
 		DF4245A419F883BD00F3F3B3 /* YourVoiceAlarmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4245A319F883BD00F3F3B3 /* YourVoiceAlarmTests.m */; };
 		DF5BF5891A0C98D500A249DD /* SleepingTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5BF5881A0C98D500A249DD /* SleepingTimeViewController.m */; };
+		DFF8F3D21A11A96E0066ACFB /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF8F3D11A11A96E0066ACFB /* BaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		DF4245A319F883BD00F3F3B3 /* YourVoiceAlarmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YourVoiceAlarmTests.m; sourceTree = "<group>"; };
 		DF5BF5871A0C98D500A249DD /* SleepingTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepingTimeViewController.h; sourceTree = "<group>"; };
 		DF5BF5881A0C98D500A249DD /* SleepingTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepingTimeViewController.m; sourceTree = "<group>"; };
+		DFF8F3D01A11A96E0066ACFB /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		DFF8F3D11A11A96E0066ACFB /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 			children = (
 				DF42458B19F883BD00F3F3B3 /* AppDelegate.h */,
 				DF42458C19F883BD00F3F3B3 /* AppDelegate.m */,
+				DFF8F3D01A11A96E0066ACFB /* BaseViewController.h */,
+				DFF8F3D11A11A96E0066ACFB /* BaseViewController.m */,
 				DF42458E19F883BD00F3F3B3 /* ViewController.h */,
 				DF42458F19F883BD00F3F3B3 /* ViewController.m */,
 				DF42459119F883BD00F3F3B3 /* Main.storyboard */,
@@ -225,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF5BF5891A0C98D500A249DD /* SleepingTimeViewController.m in Sources */,
+				DFF8F3D21A11A96E0066ACFB /* BaseViewController.m in Sources */,
 				DF42459019F883BD00F3F3B3 /* ViewController.m in Sources */,
 				DF42458D19F883BD00F3F3B3 /* AppDelegate.m in Sources */,
 				DF42458A19F883BD00F3F3B3 /* main.m in Sources */,
