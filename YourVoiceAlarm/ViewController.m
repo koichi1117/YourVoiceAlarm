@@ -17,6 +17,8 @@
     UITextField *wakeUpTimeField;
     NSString *datePickerTime;
     UILabel *datePickerLabel;
+    NSArray *pathComponents;
+    NSURL *outputFileURL;
 }
 @end
 
@@ -36,9 +38,11 @@
     [playButton setEnabled:NO];
     
     // 録音するためのファイルを用意する
-    NSArray *pathComponents = [NSArray arrayWithObjects:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],@"MyAudioMemo.m4a", nil];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [paths firstObject];
+    pathComponents = [NSArray arrayWithObjects:path, @"MyAudioMemo.m4a", nil];
     // pathComponentsという配列を定義。その中に、ファイルの場所と、ファイルの名前を含めている。nilを書くことで、配列の一番最後だということを示している。
-    NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
+    outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
     // outputFileURLで、pathComponentsのURLを作る
     
     // audio sessionを開始する。sessionの種類は、PlayとRecordが出来るようなものに設定。
@@ -63,6 +67,8 @@
     // ここから時間の表示&設定
     datePicker = [[UIDatePicker alloc] init];
     [datePicker setDatePickerMode:UIDatePickerModeTime];
+    
+
     
     // wakeUpTimeFieldを編集したら、datePickerを呼び出す
     [datePicker addTarget:self action:@selector(wakeUpTimeField) forControlEvents:UIControlEventValueChanged];
@@ -198,92 +204,6 @@
 }
 
 
-// 設定した時間が、今の時間と一緒か確かめる-----------------------------------------------------------
-
-// 指定した時刻(hour)
-- (NSInteger)datePickerTimeHour
-{
-    NSDateFormatter *hourFormatter = [[NSDateFormatter alloc] init];
-    hourFormatter.dateFormat = @"HH";
-    
-//    [hourFormatter setLocale:[NSLocale currentLocale]];
-//    [hourFormatter setDateFormat:@"HH"];
-    NSString *datePickerHour = [hourFormatter stringFromDate:datePicker.date];
-    return [datePickerHour intValue];
-}
-
-// 指定した時刻(minute)
-- (NSInteger)datePickerTimeMinute
-{
-    NSDateFormatter *minuteFormatter = [[NSDateFormatter alloc] init];
-    minuteFormatter.dateFormat = @"mm";
-//    [minuteFormatter setLocale:[NSLocale currentLocale]];
-//    [minuteFormatter setDateFormat:@"mm"];
-    NSString *datePickerHour = [minuteFormatter stringFromDate:datePicker.date];
-    return [datePickerHour intValue];
-}
-
-//現在時刻のコンポーネント
-- (NSDateComponents *)currentDateComponents
-{
-    //現在の時刻を取得
-    NSDate *nowDate = [NSDate date];
-    
-    //現在時刻のコンポーネント定義
-    NSDateComponents *nowComponents;
-    nowComponents = [[NSCalendar currentCalendar] components:( NSCalendarUnitHour | NSCalendarUnitMinute ) fromDate:nowDate];
-    return nowComponents;
-}
-
-
-// 現在の時間(hour)
-- (NSInteger)currentHour
-{
-    NSDateComponents *currentTimeComponents = [self currentDateComponents];
-    return currentTimeComponents.hour;
-}
-
-// 現在の時間(minute)
-- (NSInteger)currentMinute
-{
-    NSDateComponents *currentTimeComponents = [self currentDateComponents];
-    return currentTimeComponents.minute;
-}
-
-// アラームタイマー開始
-- (IBAction)pushStartAlarm:(id)sender
-{
-    alarmTimer = [NSTimer scheduledTimerWithTimeInterval:10
-                                                  target:self
-                                                selector:@selector(alarmTimerEvent:)
-                                                userInfo:nil
-                                                 repeats:YES];
-}
-
-
-// アラームの再生メソッド
-- (void)alarmTimerEvent:(NSTimer *)timer
-
-//    if (!recorder.recording) //この中身これで良いのか確かめる。さらにアラームがオンになってるかどうか、という制限もかけなければならないのではないか？しかも、一回再生するのではなくて、永遠に再生してほしい。
-    {
-        if ([self currentHour]   == [self datePickerTimeHour] &&
-            [self currentMinute] == [self datePickerTimeMinute])
-        {
-//            NSLog(@"equal");
-//            NSLog(@"%ld", (unsigned long)[self currentHour]);
-//            NSLog(@"%ld", (unsigned long)[self datePickerTimeHour]);
-//            NSLog(@"%ld", (unsigned long)[self currentMinute]);
-//            NSLog(@"%ld", (unsigned long)[self datePickerTimeMinute]);
-            player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
-            [player setDelegate:self];
-            [player play];
-        }
-        else{
-//            NSLog(@"else");
-        }
-    }
-
-
 
 
 // 止めるボタンを押すと止まるメソッド
@@ -307,6 +227,10 @@
         ViewController *viewCon = segue.destinationViewController;
         viewCon.wakeUpTime = datePickerTime;
         viewCon.wakeUpTimePicker = datePicker;
+        viewCon.recorderUrl = recorder.url;
+        
+        
+    
         
     }
 }

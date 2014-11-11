@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface SleepingTimeViewController : ViewController
+@interface SleepingTimeViewController : ViewController <AVAudioPlayerDelegate>
 
 @end

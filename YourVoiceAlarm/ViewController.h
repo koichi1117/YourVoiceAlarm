@@ -40,6 +40,8 @@
 
 @property (nonatomic) NSString *wakeUpTime;
 @property (nonatomic) UIDatePicker *wakeUpTimePicker;
+@property (nonatomic) NSURL *recorderUrl;
+
 
 @end
 
