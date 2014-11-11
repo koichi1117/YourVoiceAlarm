@@ -10,7 +10,7 @@
 
 @interface SleepingTimeViewController ()
 {
-    AVAudioRecorder *recorder;
+//    AVAudioRecorder *recorder;
     AVAudioPlayer *player;
     UIDatePicker *datePicker;
     UITextField *wakeUpTimeField;
@@ -42,6 +42,9 @@
                                                          userInfo:nil
                                                           repeats:YES];
     
+
+    
+    
 }
 
 
@@ -56,18 +59,18 @@
     if ([self currentHour]   == [self datePickerTimeHour] &&
         [self currentMinute] == [self datePickerTimeMinute])
     {
-                    NSLog(@"equal");
-                    NSLog(@"%ld", (unsigned long)[self currentHour]);
-                    NSLog(@"%ld", (unsigned long)[self datePickerTimeHour]);
-                    NSLog(@"%ld", (unsigned long)[self currentMinute]);
-                    NSLog(@"%ld", (unsigned long)[self datePickerTimeMinute]);
-
-        
+//                    NSLog(@"equal");
+//                    NSLog(@"%ld", (unsigned long)[self currentHour]);
+//                    NSLog(@"%ld", (unsigned long)[self datePickerTimeHour]);
+//                    NSLog(@"%ld", (unsigned long)[self currentMinute]);
+//                    NSLog(@"%ld", (unsigned long)[self datePickerTimeMinute]);
+//
+//        
         [player play];
         
     }
     else{
-                    NSLog(@"else");
+//                    NSLog(@"else");
     }
 }
 

@@ -11,20 +11,20 @@
 @interface ViewController ()
 {
     // インスタンス変数を定義する-------------------------------------------------------------------------------------------
-    AVAudioRecorder *recorder;
+//    AVAudioRecorder *recorder;
     AVAudioPlayer *player;
     UIDatePicker *datePicker;
     UITextField *wakeUpTimeField;
     NSString *datePickerTime;
     UILabel *datePickerLabel;
-    NSArray *pathComponents;
-    NSURL *outputFileURL;
+//    NSArray *pathComponents;
+//    NSURL *outputFileURL;
 }
 @end
 
 // ここから実装部分-------------------------------------------------------------------------------------------------------
 @implementation ViewController
-@synthesize recordPauseButton, stopButton, playButton, stopAlarmButton, datePicker, datePickerTime, datePickerLabel, alarmTimer, startAlarmTimer, wakeUpTimeField, inputView;
+@synthesize recordPauseButton, stopButton, playButton, stopAlarmButton, datePickerTime, datePickerLabel, alarmTimer, wakeUpTimeField, inputView, datePicker;
 
 
 
@@ -37,17 +37,17 @@
     [stopButton setEnabled:NO];
     [playButton setEnabled:NO];
     
-    // 録音するためのファイルを用意する
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [paths firstObject];
-    pathComponents = [NSArray arrayWithObjects:path, @"MyAudioMemo.m4a", nil];
-    // pathComponentsという配列を定義。その中に、ファイルの場所と、ファイルの名前を含めている。nilを書くことで、配列の一番最後だということを示している。
-    outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
-    // outputFileURLで、pathComponentsのURLを作る
-    
-    // audio sessionを開始する。sessionの種類は、PlayとRecordが出来るようなものに設定。
-    AVAudioSession *session = [AVAudioSession sharedInstance];
-    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+//    // 録音するためのファイルを用意する
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *path = [paths firstObject];
+//    pathComponents = [NSArray arrayWithObjects:path, @"MyAudioMemo.m4a", nil];
+//    // pathComponentsという配列を定義。その中に、ファイルの場所と、ファイルの名前を含めている。nilを書くことで、配列の一番最後だということを示している。
+//    outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
+//    // outputFileURLで、pathComponentsのURLを作る
+//    
+//    // audio sessionを開始する。sessionの種類は、PlayとRecordが出来るようなものに設定。
+//    AVAudioSession *session = [AVAudioSession sharedInstance];
+//    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     
     // レコーダーの設定
     NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init]; // NSMutableDictionaryはNSDictionaryの子クラス。キー値と要素を対で保持する配列クラス。変更可能なものとする。
