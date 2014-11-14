@@ -11,6 +11,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import "BaseViewController.h"
 
-@interface SleepingTimeViewController : BaseViewController <AVAudioPlayerDelegate>
+@interface SleepingTimeViewController : BaseViewController <AVAudioPlayerDelegate, UIAlertViewDelegate>
 
 @end

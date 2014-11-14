@@ -7,10 +7,10 @@
 //
 
 #import "SleepingTimeViewController.h"
+#import "ViewController.h"
 
 @interface SleepingTimeViewController ()
 {
-//    AVAudioRecorder *recorder;
     AVAudioPlayer *player;
     UIDatePicker *datePicker;
     UITextField *wakeUpTimeField;
@@ -18,7 +18,6 @@
 }
 @property (weak, nonatomic) IBOutlet UILabel *datePickerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeNowLabel;
-@property (nonatomic) AVAudioPlayer *audioPlayer;
 
 @end
 
@@ -36,19 +35,27 @@
 {
     self.datePickerLabel.text = self.wakeUpTime;
 
+    NSTimer *timeCountTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                           target:self
+                                                         selector:@selector(timeCountEvent:)
+                                                         userInfo:nil
+                                                          repeats:YES];
+
     NSTimer *alarmTimer = [NSTimer scheduledTimerWithTimeInterval:1
                                                            target:self
                                                          selector:@selector(alarmTimerEvent:)
                                                          userInfo:nil
                                                           repeats:YES];
-    
 
-    
-    
+    NSTimer *popUpTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                           target:self
+                                                         selector:@selector(popUpEvent:)
+                                                         userInfo:nil
+                                                          repeats:YES];
 }
 
 
-- (void)alarmTimerEvent:(NSTimer *)timer
+- (void)timeCountEvent:(NSTimer *)timer
 {
     NSDate *time = [NSDate date];
     NSDateFormatter *form = [[NSDateFormatter alloc] init];
@@ -56,23 +63,60 @@
     NSString *timeNow = [form stringFromDate:time];
     _timeNowLabel.text = timeNow;
     
+}
+
+- (void)alarmTimerEvent:(NSTimer *)timer
+{
     if ([self currentHour]   == [self datePickerTimeHour] &&
         [self currentMinute] == [self datePickerTimeMinute])
     {
-//                    NSLog(@"equal");
-//                    NSLog(@"%ld", (unsigned long)[self currentHour]);
-//                    NSLog(@"%ld", (unsigned long)[self datePickerTimeHour]);
-//                    NSLog(@"%ld", (unsigned long)[self currentMinute]);
-//                    NSLog(@"%ld", (unsigned long)[self datePickerTimeMinute]);
-//
-//        
         [player play];
-        
-    }
-    else{
-//                    NSLog(@"else");
+        if (![player play]){
+            [timer invalidate];
+        }
     }
 }
+
+- (void)popUpEvent:(NSTimer *)timer
+{
+    if ([self currentHour]   == [self datePickerTimeHour] &&
+        [self currentMinute] == [self datePickerTimeMinute])
+    {
+        UIAlertView *alarmAlert = [[UIAlertView alloc] initWithTitle:@"アラーム"
+                                                             message:@"朝になりました"
+                                                            delegate:self
+                                                   cancelButtonTitle:nil
+                                                   otherButtonTitles:@"起きる", nil];
+        [alarmAlert show];
+        if (alarmAlert){
+            [timer invalidate];
+        }
+    }
+}
+
+- (void)alarmAlert:(UIAlertView *)alarmAlert clickButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 1:
+            // 前ページに戻って、アラームをリセットする
+//            ViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TopPage"];
+//            [self presentViewController:controller animated:YES completion:nil];
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+}
+
+
+
+- (void)tappedStopButtonOnPopUp:(id)sender
+{
+    [player stop];
+}
+
 
 
 - (void)didReceiveMemoryWarning {
